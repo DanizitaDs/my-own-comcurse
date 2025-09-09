@@ -6,3 +6,5 @@ Dani/dist/
 Dani/coverage/
 .DS_Store
 dist/
+test
+.env
