@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ComCourse</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/comcourse-final.css" />
+  </head>
+
+  <body>
+    <header data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <a href="index.html"><img src="./img/logoCo.png" alt="Logo Coruja" class="logo" /></a>
+          </div>
+          <form id="form-search" role="search">
+            <input type="search" id="search-input" placeholder="Buscar cursos..." />
+          </form>
+          <div id="overlay" class="overlay-busca"><div id="overlay-content-busca" class="overlay-content"></div></div>
+          <div class="topbar-right d-flex align-items-center gap-3">
+            <a class="btn-cursos" href="index.html#cursos">Cursos</a>
+            <a href="SobreNos.html" class="user">Sobre Nós</a>
+            <div class="perfil-bolinha" style="cursor: pointer;">
+              <!-- Aqui o JS insere dinamicamente a imagem ou o ícone -->
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="search-results"></div>
+    <!-- ▸▸ CONTEÚDO PRINCIPAL ◂◂ -->
+    <div class="form-container-aula-criar">
+      <h2 class="mb-4">Criar Nova Aula</h2>
+      <div class="mb-3">
+        <label for="curso-select" class="form-label">Selecione um Curso</label>
+        <select id="curso-select" class="form-select">
+          <option value="">Selecione...</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="aula-titulo" class="form-label">Título da Aula</label>
+        <input
+          type="text"
+          id="aula-titulo"
+          class="form-control"
+          placeholder="Digite o título da aula"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="aula-descricao" class="form-label">Descrição</label>
+        <textarea
+          id="aula-descricao"
+          class="form-control"
+          placeholder="Digite a descrição da aula"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="aula-url" class="form-label">URL do Vídeo</label>
+        <input
+          type="text"
+          id="aula-url"
+          class="form-control"
+          placeholder="Digite a URL do vídeo da aula"
+        />
+      </div>
+      <button id="btn-criar-aula" class="btn btn-success">Criar Aula</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <a class="fab fa-instagram" href="https://www.instagram.com/communitycourse/"target="_blank"></a>
+      </div>
+    </footer>
+
+    <div id="overlay-menu">
+      <div id="overlay-content-menu">
+        <div id="btnPerfil" class="overlay-button-menu"><a href="Perfil.html" class="text-decoration-none text-white"><i class="fas fa-user"></i> Seu perfil</a></div>
+        <div id="btnEditar" class="overlay-button-menu"><a href="editar.html" class="text-decoration-none text-white"><i class="fas fa-edit"></i> Editar Cursos/Aulas</a></div>
+        <div id="btnCriarCurso" class="overlay-button-menu"><a href="criar_cursos.html" class="text-decoration-none text-white"><i class="fa fa-plus"></i>Criar Cursos</a></div>
+        <div id="btnCriarAula" class="overlay-button-menu"><a href="criar_aula.html" class="text-decoration-none text-white"><i class="fa fa-plus"></i> Criar Aulas</a></div>
+        <div id="btnSuporte" class="overlay-button-menu"><a href="https://mailto:comcoursetds@gmail.com" target="_blank" class="text-decoration-none text-white"><i class="fas fa-headphones"></i> Suporte </a></div>
+        <div id="btnAdmin" class="overlay-button-menu"><a href="telaAdmin.html" target="_blank" class="text-decoration-none text-white"><i class="fa fa-tasks"></i> Painel Administrativo </a></div>
+        <div id="btnDelete" class="overlay-button-menu text-white" ><i class="fas fa-cog"></i> Excluir Conta</div>
+        <div id="btnSair" class="overlay-button text-red"><i class="fa fa-sign-out" ></i> Sair</div>
+      </div>
+    </div>
+
+    <div id="config-modal">
+      <div class="config-modal-content">
+        <button >Excluir Conta</button>
+        <button class="sair" >Sair</button>
+      </div>
+    </div>
+<!-- Container de alertas -->
+<div id="alert-container" class="position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+
+<!-- Modal de confirmação -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body" id="confirmModalMessage">
+        <!-- Mensagem de confirmação -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmModalYes">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="./js/overlay.js"></script>
+<script src="./js/criar_aula.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

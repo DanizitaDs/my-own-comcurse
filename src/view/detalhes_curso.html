@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComCourse</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="css/comcourse-final.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html"><img src="./img/logoCo.png" alt="Logo Coruja" class="logo" /></a>
+        </div>
+        <form id="form-search" role="search">
+          <input type="search" id="search-input" placeholder="Buscar cursos..." />
+        </form>
+        <div id="overlay" class="overlay-busca">
+          <div id="overlay-content-busca" class="overlay-content"></div>
+        </div>
+        <div class="topbar-right d-flex align-items-center gap-3">
+          <a class="btn-cursos" href="index.html#cursos">Cursos</a>
+          <a href="SobreNos.html" class="user">Sobre Nós</a>
+          <div class="perfil-bolinha" style="cursor: pointer;"></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <div id="search-results"></div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="course-wrapper px-0">
+    <section class="course-hero d-flex justify-content-center align-items-center"></section> 
+  
+    <section class="container course-info"></section> 
+
+    <section class="container mt-4 lessons">
+      <h3 class="fw-bold mb-3 classes-title">Aulas</h3>
+      <div class="lessons-container" id="lessons-container"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <a class="fab fa-instagram" href="https://www.instagram.com/communitycourse/" target="_blank"></a>
+    </div>
+  </footer>
+
+  <!-- OVERLAY MENU -->
+  <div id="overlay-menu">
+    <div id="overlay-content-menu">
+      <div id="btnPerfil" class="overlay-button-menu">
+        <a href="Perfil.html" class="text-decoration-none text-white"><i class="fas fa-user"></i> Seu perfil</a>
+      </div>
+      <div id="btnEditar" class="overlay-button-menu">
+        <a href="editar.html" class="text-decoration-none text-white"><i class="fas fa-edit"></i> Editar Cursos/Aulas</a>
+      </div>
+      <div id="btnCriarCurso" class="overlay-button-menu">
+        <a href="criar_cursos.html" class="text-decoration-none text-white"><i class="fa fa-plus"></i>Criar Cursos</a>
+      </div>
+      <div id="btnCriarAula" class="overlay-button-menu">
+        <a href="criar_aula.html" class="text-decoration-none text-white"><i class="fa fa-plus"></i> Criar Aulas</a>
+      </div>
+      <div id="btnSuporte" class="overlay-button-menu">
+        <a href="https://mailto:comcoursetds@gmail.com" target="_blank" class="text-decoration-none text-white"><i class="fas fa-headphones"></i> Suporte </a>
+      </div>
+      <div id="btnAdmin" class="overlay-button-menu"><a href="telaAdmin.html" target="_blank" class="text-decoration-none text-white"><i class="fa fa-tasks"></i> Painel Administrativo </a></div>
+      <div id="btnDelete" class="overlay-button-menu text-white"><i class="fas fa-cog"></i> Excluir Conta</div>
+      <div id="btnSair" class="overlay-button text-red"><i class="fa fa-sign-out"></i> Sair</div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CONFIGURAÇÕES -->
+  <div id="config-modal">
+    <div class="config-modal-content">
+      <button onclick="excluirConta()">Excluir Conta</button>
+      <button class="sair" onclick="sair()">Sair</button>
+    </div>
+  </div>
+
+  <!-- ALERTAS -->
+  <div id="alert-container" class="position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+
+  <!-- MODAL DE CONFIRMAÇÃO -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="confirmModalMessage"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmModalYes">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- JS Overlay + Bootstrap -->
+  <script type="module" src="./js/overlay.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SCRIPT PRINCIPAL -->
+  <script type="module" src="./js/detalhes_curso.js"></script>
+</body>
+</html>

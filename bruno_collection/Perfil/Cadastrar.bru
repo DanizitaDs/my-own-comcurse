@@ -1,0 +1,31 @@
+meta {
+  name: Cadastrar
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "user5",
+    "email": "user5@gmail.com",
+    "password": "1234",
+    "profileUrl": "teste"
+  }
+}
+
+body:multipart-form {
+  name: yasmin5
+  email: yasmin3@test
+  password: 12345
+  ~profileImage: @file(/Users/vagner.oliveira/Downloads/images (1).jpeg)
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Atualizar
+  type: http
+  seq: 1
+}
+
+put {
+  url: 
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Outra Aula da Danny",
+    "description": "EDITADO",
+    "url": "https://www.youtube.com",
+    "courseId": "1"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

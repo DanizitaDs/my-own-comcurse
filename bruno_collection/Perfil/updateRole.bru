@@ -1,0 +1,19 @@
+meta {
+  name: updateRole
+  type: http
+  seq: 7
+}
+
+patch {
+  url: http://localhost:3000/users/updateRole
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsImlhdCI6MTc1NTU2MTM0NywiZXhwIjoxNzU1NTkwMTQ3fQ.EzohR76-IaSrf98B6P3IDxPjRhxeVmnjz0H24eDKiCs
+}
+
+settings {
+  encodeUrl: true
+}
